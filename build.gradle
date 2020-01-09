@@ -25,6 +25,9 @@ dependencies {
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    compile files('lib/partner-java-sdk-1.0-SNAPSHOT.jar')
 }
 
 // Define the main class for the application
