@@ -2,13 +2,20 @@
 
 [partner-java-sdk](https://github.com/pokepay/partner-java-sdk)をgradle経由で使う簡単なクライアントです
 
+# Usage
+
+```
+$ ./gradlew build
+$ ./gradlew run
+```
+
 # partner-java-sdkの利用方法について
 
 事前にpartner-java-sdkのjarを用意する
 
 ```
 $ cd ~/pokepay/partner-java-sdk
-$ gradle jar
+$ ./gradlew jar
 ```
 
 これでpartner-java-sdkのbuild/libsにpartner-java-sdk-[VERSION].jarが作られる
@@ -26,39 +33,21 @@ $ mkdir lib
 $ cp ~/pokepay/partner-java-sdk/build/libs/partner-java-sdk-[VERSION].jar lib/
 ```
 
-build.gradleに依存するライブラリの情報を追加
-build.gradleのdependenciesに下記の用にgsonとjarを追加する
+app/build.gradleに依存するライブラリの情報を追加
+build.gradleのdependenciesに下記の様にgsonとjarを追加する
 
 gsonを追加するのはpartner-java-sdkで依存しているから。これがないと実行時にgsonが見つからずエラーになる
 
-```
-diff --git a/build.gradle b/build.gradle
-```
-
 ```diff
-index 4686707..f771134 100644
- 
---- a/build.gradle
- 
-+++ b/build.gradle
- 
-@@ -25,6 +25,9 @@ dependencies {
- 
- 
-// Use JUnit test framework
- 
-testCompile 'junit:junit:4.12'
- 
-+
- 
-+ implementation 'com.google.code.gson:gson:2.8.5'
- 
-+ compile files('lib/partner-java-sdk-1.0-SNAPSHOT.jar')
- 
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:31.1-jre'
+
++    implementation 'com.google.code.gson:gson:2.8.5'
++    implementation files('lib/partner-java-sdk-0.1.9.jar')
+
 }
- 
- 
-// Define the main class for the application
+
+// Apply a specific Java toolchain to ease working on different environments.
 ```
 
 # config.propertiesを用意する
