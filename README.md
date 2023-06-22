@@ -14,7 +14,7 @@ $ cd ~/pokepay/partner-java-sdk
 $ gradle jar
 ```
 
-これでpartner-java-sdkのbuild/libsにpartner-java-sdk-[VERSION]-SNAPSHOT.jarが作られる
+これでpartner-java-sdkのbuild/libsにpartner-java-sdk-[VERSION].jarが作られる
 
 gradleを使ってクライアントを作る
 ```
@@ -26,13 +26,13 @@ $ gradle init --type java-application
 partner-java-sdkのjarをそのクライアント内のディレクトリに配置する
 ```
 $ mkdir lib
-$ cp ~/pokepay/partner-java-sdk/build/libs/partner-java-sdk-1.0-SNAPSHOT.jar lib/
+$ cp ~/pokepay/partner-java-sdk/build/libs/partner-java-sdk-[VERSION].jar lib/
 ```
 
 build.gradleに依存するライブラリの情報を追加
 build.gradleのdependenciesに下記の用にgsonとjarを追加する
 
-gsonを追加するのはpartner-java-sdkで依存しているから、これがないと実行時にgsonが見つからずエラーになる
+gsonを追加するのはpartner-java-sdkで依存しているから。これがないと実行時にgsonが見つからずエラーになる
 
 ```
 diff --git a/build.gradle b/build.gradle
