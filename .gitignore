@@ -35,3 +35,6 @@ bin
 *.log
 *.swp
 *.bak
+
+# Pokepay SDK
+!app/lib/*.jar
