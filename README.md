@@ -1,9 +1,6 @@
 # partner-java-sdk-client-demo
 
-partner-java-sdkをgradle経由で使う簡単なクライアントです
-
-## 参考
-https://confluence.coilinc.jp/pages/viewpage.action?pageId=29032824
+[partner-java-sdk](https://github.com/pokepay/partner-java-sdk)をgradle経由で使う簡単なクライアントです
 
 # partner-java-sdkの利用方法について
 
